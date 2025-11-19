@@ -1,30 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="Stylesheet" href="style.css" />
-    <title>My Recipie Site</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Pranjal — Simple Portfolio</title>
   </head>
+
   <body>
     <header>
-      <h1>Enjoy the food recipie shown here</h1>
-      <p>This website is purely for sharing local recipie</p>
-      <nav>
-        <a href="">Favourite Recipie</a>
-        <a href="">Most popular</a>
-        <a>Visit our kitchen</a>
-      </nav>
+      <div class="container header-inner">
+        <div class="brand">Pranjal</div>
+        <nav class="site-nav">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Portfolio</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="menu-btn" aria-label="menu" onclick="toggleNav()">
+          ☰
+        </button>
+      </div>
     </header>
+
     <main>
-      <section>
-        <article>
-          <p></p>
-        </article>
+      <section id="home" class="hero">
+        <div class="hero-inner container">
+          <h1>I Am Web Developer <span class="pipe" title="cursor"></span></h1>
+          <p>
+            Clean, modern interfaces — I build simple, fast websites and web
+            apps.
+          </p>
+          <div class="btns">
+            <a class="btn btn-primary" href="#projects">View Work</a>
+            <a class="btn btn-ghost" href="#contact">Hire Me</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="about">
+        <div class="container">
+          <h2>About <span class="highlight">MySelf</span></h2>
+          <p>
+            Short intro: I'm a web developer who focuses on building clean,
+            accessible interfaces. I work with HTML, CSS and JavaScript. I
+            design simple experiences that load fast and look great.
+          </p>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="projects container" style="padding: 40px 0">
+        <div class="card">
+          <h3>Project One</h3>
+          <p>Landing page design • HTML / CSS</p>
+        </div>
+        <div class="card">
+          <h3>Project Two</h3>
+          <p>Small web app • JS</p>
+        </div>
+        <div class="card">
+          <h3>Project Three</h3>
+          <p>Portfolio demo • Responsive</p>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section
+        id="contact"
+        class="container"
+        style="padding: 40px 0; text-align: center"
+      >
+        <h2>Contact</h2>
+        <p style="color: var(--muted)">
+          Email:
+          <a
+            href="mailto:pranjal1000@gmail.com"
+            style="color: var(--accent); text-decoration: none"
+          >
+            pranjal1000@gmail.com
+          </a>
+        </p>
       </section>
     </main>
+
     <footer>
-      <p>&copy; 2025, Pranjal kitchen</p>
+      <div class="container">
+        © <span id="year"></span> Pranjal — Built simple
+      </div>
     </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+      function toggleNav() {
+        const nav = document.querySelector(".site-nav");
+        if (!nav) return;
+        if (nav.style.display === "flex") nav.style.display = "";
+        else nav.style.display = "flex";
+        nav.style.flexDirection = "column";
+        nav.style.position = "absolute";
+        nav.style.right = "20px";
+        nav.style.top = "64px";
+        nav.style.background = "rgba(0,0,0,0.6)";
+        nav.style.padding = "10px";
+        nav.style.borderRadius = "10px";
+      }
+    </script>
   </body>
 </html>
