@@ -34,28 +34,39 @@ header nav a:hover {
 /* Hero Section */
 .hero {
   height: 70vh;
-  background: url("/mnt/data/09f4cf4b-db24-486b-a631-55dc68f9b09a.png");
-  background-size: cover;
-  background-position: center;
+  position: relative;
   text-align: center;
   color: white;
   padding-top: 130px;
-
-  /* dark overlay */
-  position: relative;
+  overflow: hidden;
 }
 
+/* Dark overlay */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
 }
 
+/* Video background */
+#hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Text and buttons stay above video */
 .hero h1,
 .hero p,
 .hero button {
   position: relative;
+  z-index: 2;
 }
 
 .hero h1 {
